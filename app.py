@@ -30,7 +30,6 @@ elif st.session_state.step == 'part2_story':
     
     if st.button("See who is coming!"):
         st.write(f"He is coming by {transport}!")
-        # عرض صورة الأب مباشرة بدون دالة
         st.image(st.session_state.data['father'], caption="Father!")
         st.session_state.step = 'location_question'
         st.rerun()
