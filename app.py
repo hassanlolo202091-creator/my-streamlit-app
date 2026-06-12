@@ -29,10 +29,6 @@ elif st.session_state.step == 'part2_story':
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
     if st.button("See who is coming!"):
         st.write(f"He is coming by {transport}!")
-    import streamlit as st
-from PIL import Image  
- from PIL import Image 
-   if transport == "Plane":
 if transport == "Plane":
     father_img = Image.open(st.session_state.data['father'])
         combined_image = blend_father_with_plane(father_img)
