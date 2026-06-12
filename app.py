@@ -33,9 +33,9 @@ elif st.session_state.step == 'part2_story':
         
         if st.session_state.transport_choice == "Plane":
             try:
-                father_img = Image.open(st.session_state.data['father']).resize((300, 300))
-                plane_bg = Image.open("plane.jpeg")
-                plane_bg.paste(father_img, (100, 100))
+                father_img = Image.open(st.session_state.data['father']).convert("RGBA").resize((300, 300))
+                plane_bg = Image.open("plane.jpeg").convert("RGBA")
+                plane_bg.paste(father_img, (100, 100), father_img)
                 st.image(plane_bg, caption="Father on the plane!")
             except Exception as e:
                 st.error(f"Error loading image: {e}")
