@@ -26,9 +26,6 @@ if st.session_state.step == 'upload_photos':
 
 elif st.session_state.step == 'part2_story':
     st.header("The Adventure Begins!")
-  elif st.session_state.step == 'part2_story':
-    st.header("The Adventure Begins!")
-    # حفظ الاختيار في session_state لضمان بقائه
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"], key="transport_choice")
     
     if st.button("See who is coming!"):
