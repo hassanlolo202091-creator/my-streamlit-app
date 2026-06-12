@@ -26,17 +26,26 @@ if st.session_state.step == 'upload_photos':
 
 elif st.session_state.step == 'part2_story':
     st.header("The Adventure Begins!")
-    transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
+  elif st.session_state.step == 'part2_story':
+    st.header("The Adventure Begins!")
+    # حفظ الاختيار في session_state لضمان بقائه
+    transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"], key="transport_choice")
     
-if st.button("See who is coming!"):
-        st.write(f"He is coming by {transport}!")
-        if transport == "Plane":
-            father_img = Image.open(st.session_state.data['father']).resize((300, 300))
-            plane_bg = Image.open("plane.jpeg")
-            plane_bg.paste(father_img, (100, 100))
-            st.image(plane_bg, caption="Father on the plane!")
+    if st.button("See who is coming!"):
+        st.write(f"He is coming by {st.session_state.transport_choice}!")
+        
+        if st.session_state.transport_choice == "Plane":
+            try:
+                father_img = Image.open(st.session_state.data['father']).resize((300, 300))
+                plane_bg = Image.open("plane.jpeg")
+                plane_bg.paste(father_img, (100, 100))
+                st.image(plane_bg, caption="Father on the plane!")
+            except Exception as e:
+                st.error(f"Error loading image: {e}")
+                st.image(st.session_state.data['father'])
         else:
             st.image(st.session_state.data['father'], caption="Father!")
+            
         st.session_state.step = 'location_question'
         st.rerun()
 
