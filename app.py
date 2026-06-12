@@ -28,7 +28,7 @@ elif st.session_state.step == 'part2_story':
     st.header("The Adventure Begins!")
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
     
-  if st.button("See who is coming!"):
+if st.button("See who is coming!"):
         st.write(f"He is coming by {transport}!")
         if transport == "Plane":
             father_img = Image.open(st.session_state.data['father']).resize((300, 300))
