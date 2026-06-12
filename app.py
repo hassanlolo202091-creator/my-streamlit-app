@@ -11,10 +11,14 @@ if 'step' not in st.session_state:
 # Page 1: Upload Photos
 if st.session_state.step == 'upload_photos':
     st.header("Step 1: Meet the Family")
-    f_img = st.file_uploader("Father's photo", type=['jpg', 'png', 'jpeg'])
-    m_img = st.file_uploader("Mother's photo", type=['jpg', 'png', 'jpeg'])
-    b_img = st.file_uploader("Brother's photo", type=['jpg', 'png', 'jpeg'])
-    u_img = st.file_uploader("Your photo", type=['jpg', 'png', 'jpeg'])
+    f_name = st.text_input("Father's name?")
+    f_img = st.file_uploader("Father's photo", type=['jpg', 'png'])
+    m_name = st.text_input("Mother's name?")
+    m_img = st.file_uploader("Mother's photo", type=['jpg', 'png'])
+    b_name = st.text_input("Brother's name?")
+    b_img = st.file_uploader("Brother's photo", type=['jpg', 'png'])
+    u_name = st.text_input("Your name?")
+    u_img = st.file_uploader("Your photo", type=['jpg', 'png'])
     
     if st.button("Save & Start!"):
         if f_img and m_img and b_img and u_img:
