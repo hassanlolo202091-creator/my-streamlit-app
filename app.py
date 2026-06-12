@@ -28,9 +28,15 @@ elif st.session_state.step == 'part2_story':
     st.header("The Adventure Begins!")
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
     
-    if st.button("See who is coming!"):
+  if st.button("See who is coming!"):
         st.write(f"He is coming by {transport}!")
-        st.image(st.session_state.data['father'], caption="Father!")
+        if transport == "Plane":
+            father_img = Image.open(st.session_state.data['father']).resize((300, 300))
+            plane_bg = Image.open("plane.jpeg")
+            plane_bg.paste(father_img, (100, 100))
+            st.image(plane_bg, caption="Father on the plane!")
+        else:
+            st.image(st.session_state.data['father'], caption="Father!")
         st.session_state.step = 'location_question'
         st.rerun()
 
