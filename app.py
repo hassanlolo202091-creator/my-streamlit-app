@@ -29,7 +29,12 @@ elif st.session_state.step == 'part2_story':
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
     if st.button("See who is coming!"):
         st.write(f"He is coming by {transport}!")
-        st.image(st.session_state.data['father'])
+       from PIL import Image 
+   if transport == "Plane":
+if transport == "Plane":
+    father_img = Image.open(st.session_state.data['father'])
+        combined_image = blend_father_with_plane(father_img)
+        st.image(combined_image, caption="Father on the plane!")
         st.session_state.step = 'location_question'
 
 elif st.session_state.step == 'location_question':
