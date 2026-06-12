@@ -27,29 +27,28 @@ if st.session_state.step == 'upload_photos':
 elif st.session_state.step == 'part2_story':
     st.header("The Adventure Begins!")
     transport = st.radio("How will your father come?", ["Plane", "Car", "Camel"])
-    if st.button("See who is coming!"):
-        st.write(f"He is coming by {transport}!")
+if  st.button("See who is coming!"):
+    st.write(f"He is coming by {transport}!")
 if transport == "Plane":
     father_img = Image.open(st.session_state.data['father'])
         combined_image = blend_father_with_plane(father_img)
         st.image(combined_image, caption="Father on the plane!")
         st.session_state.step = 'location_question'
-
 elif st.session_state.step == 'location_question':
     loc = st.radio("Where do you want to go?", ["The Sea", "The Café", "The House"])
-    if st.button("Go!"):
+if st.button("Go!"):
         st.session_state.step = 'brother_question'
         st.rerun()
 
 elif st.session_state.step == 'brother_question':
     is_naughty = st.radio("Is your brother naughty?", ["Yes", "No"])
-    if st.button("Submit"):
+if st.button("Submit"):
         st.session_state.step = 'fan_question'
         st.rerun()
 
 elif st.session_state.step == 'fan_question':
     want_fan = st.radio("Do you want your father to hang him on the fan?", ["Yes", "No"])
-    if st.button("Finish"):
+if st.button("Finish"):
         st.session_state.step = 'final_reveal'
         st.rerun()
 
