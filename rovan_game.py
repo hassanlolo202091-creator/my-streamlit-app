@@ -37,12 +37,13 @@ if name.lower() == "rovan":
                 food_ans = st.text_input("ما معني كلمة الطعام بالانجليزيه ؟")
                 if food_ans.lower() == "food":
                     show_img("family food 1.jpeg")
-                    time.sleep(3)
+                  
                     st.write("الان وقت المغامرة سنذهب جميعا الي الغابة")
+                    time.sleep(2)
                     show_img("junjle1.jpeg")
                     time.sleep(2)
                     st.write("اثناء الصيد قال الاب ل عمر لا تذهب بعيدا ولكن عمر المشاغب لم يسمع كلام الاب وجري بعيدا بمفرده ليلعب مع القرود")
-                    time.sleep(4)
+                    time.sleep(3)
                     naughty = st.text_input("ما معني كلمة مشاغب باللغه الانجليزيه ؟")
                     if naughty.lower() == "naughty":
                         show_img("omar.jpeg")
@@ -71,7 +72,7 @@ if name.lower() == "rovan":
                                 time.sleep(3)
                                 eye = st.text_input("ما معني كلمة عين باللغه الانجليزيه ؟")
                                 hair = st.text_input("ما معني كلمة شعر باللغه الانجليزيه ؟")
-                                
+                
                                 if eye and hair:
                                     st.write("وها قد فعلتها بطلة الابطال الاميره الجميله روفي البطله وانقذت الامير عمر والان هما في طريق العوده الي القصر")
                                     show_img("uni corne 3.jpeg")
