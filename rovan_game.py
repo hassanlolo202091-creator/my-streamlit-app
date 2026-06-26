@@ -14,7 +14,7 @@ def show_img(filename):
     except:
         st.warning(f"الصورة {filename} غير موجودة")
 
-# --- هيكل القصة (يجب أن تبدأ جميع الـ if والـ elif من بداية السطر) ---
+# --- هيكل القصة ---
 
 if st.session_state.step == 0:
     name = st.text_input("What Is Your Name?")
