@@ -100,7 +100,7 @@ elif st.session_state.step == 9:
     show_img("uni corne 3.jpeg")
     st.write("تم الإنقاذ! روفان بطلة الأبطال.")
     show_img("reward2.jpeg")
-     st.write("تم الإنقاذ! روفان بطلة الأبطال.")
+    st.write("تم الإنقاذ! روفان بطلة الأبطال.")
     show_img("reward1.jpeg")
     if st.button("إعادة اللعب"):
         st.session_state.step = 0
