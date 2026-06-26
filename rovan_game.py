@@ -1,22 +1,84 @@
 import streamlit as st
+from PIL import Image
 
-# تعريف مراحل القصة في الـ session_state
-if 'stage' not in st.session_state:
-    st.session_state.stage = "start"
+st.title("مغامرة الأميرة روفان والأمير عمر 👸🤴")
 
-st.title("مغامرة روفان وعمر")
+# تهيئة الحالة للتنقل بين المراحل
+if 'step' not in st.session_state:
+    st.session_state.step = 0
 
-if st.session_state.stage == "start":
-    name = st.text_input("What is your name?")
+def show_img(filename):
+    try:
+        # تأكد من أن الصور موجودة في مجلد images بجانب ملف الكود
+        img = Image.open(f"images/{filename}")
+        st.image(img, use_column_width=True)
+    except:
+        st.warning(f"الصورة {filename} غير موجودة في مجلد images")
+
+# -- مراحل القصة --
+
+if st.session_state.step == 0:
+    name = st.text_input("What Is Your Name?")
     if name.lower() == "rovan":
-        if st.button("ابدئي المغامرة"):
-            st.session_state.stage = "father_name"
+        show_img("rofy-princess.jpeg")
+        if st.button("التالي"):
+            st.session_state.step = 1
             st.rerun()
 
-elif st.session_state.stage == "father_name":
-    father = st.text_input("What is your father name?")
+elif st.session_state.step == 1:
+    father = st.text_input("What Is Your Father Name?")
     if father.lower() == "hassan":
+        show_img("hassan-king.jpeg")
         if st.button("التالي"):
-            st.session_state.stage = "mother_name"
+            st.session_state.step = 2
             st.rerun()
-# وهكذا تكمل باقي المراحل...
+
+elif st.session_state.step == 2:
+    mother = st.text_input("What Is Your Mother Name?")
+    if mother.lower() == "aliaa":
+        show_img("aliaa-queen.jpeg")
+        if st.button("التالي"):
+            st.session_state.step = 3
+            st.rerun()
+
+elif st.session_state.step == 3:
+    brother = st.text_input("What Is Your Brother Name?")
+    if brother.lower() == "omar":
+        show_img("omar-prince.jpeg")
+        if st.button("نبدأ الطعام"):
+            st.session_state.step = 4
+            st.rerun()
+
+elif st.session_state.step == 4:
+    st.write("الان سنتناول الطعام")
+    food_ans = st.text_input("ما معني كلمة الطعام بالانجليزيه ؟")
+    if food_ans.lower() == "food":
+        show_img("family food 1.jpeg")
+        if st.button("إلى الغابة"):
+            st.session_state.step = 5
+            st.rerun()
+
+elif st.session_state.step == 5:
+    st.write("الان وقت المغامرة سنذهب جميعا الي الغابة")
+    show_img("junjle1.jpeg")
+    st.write("اثناء الصيد قال الاب لعمر: لا تذهب بعيدا.. ولكن عمر المشاغب لم يسمع الكلام وجرى بعيدا!")
+    naughty = st.text_input("ما معني كلمة مشاغب باللغه الانجليزيه ؟")
+    if naughty.lower() == "naughty":
+        show_img("omar.jpeg")
+        st.write("للأسف، قامت الغولة بخطفه!")
+        if st.button("إنقاذ عمر"):
+            st.session_state.step = 6
+            st.rerun()
+
+elif st.session_state.step == 6:
+    show_img("rofy herro.jpeg")
+    st.write("دور البطلة روفان الآن! يجب الإجابة على الأسئلة لإنقاذ أخيك.")
+    head = st.text_input("ما معني كلمة رأس باللغه الانجليزيه ؟")
+    ear = st.text_input("ما معني كلمة أذن باللغه الانجليزيه ؟")
+    if head.lower() == "head" and ear.lower() == "ear":
+        st.success("أحسنتِ!")
+        if st.button("استدعاء اليونيكورن"):
+            st.session_state.step = 7
+            st.rerun()
+
+# يمكنك إكمال باقي المراحل بنفس هذا النمط (7, 8, ...)
