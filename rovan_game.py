@@ -80,5 +80,39 @@ elif st.session_state.step == 6:
         if st.button("استدعاء اليونيكورن"):
             st.session_state.step = 7
             st.rerun()
+            elif st.session_state.step == 7:
+    show_img("uni corne1.jpeg")
+    st.write("الآن قامت الأميرة روفان باستدعاء اليونيكورن وحملت سيفها!")
+    mouth = st.text_input("ما معنى كلمة فم باللغة الإنجليزية؟")
+    nose = st.text_input("ما معنى كلمة أنف باللغة الإنجليزية؟")
+    
+    if mouth.lower() == "mouth" and nose.lower() == "nose":
+        st.success("أحسنتِ يا بطلة!")
+        if st.button("الذهاب لإنقاذ عمر"):
+            st.session_state.step = 8
+            st.rerun()
+
+elif st.session_state.step == 8:
+    show_img("uni corne 2.jpeg")
+    st.write("امتطت الأميرة اليونيكورن وذهبت لإنقاذ عمر من يد الغولة.")
+    eye = st.text_input("ما معنى كلمة عين باللغة الإنجليزية؟")
+    hair = st.text_input("ما معنى كلمة شعر باللغة الإنجليزية؟")
+    
+    if eye.lower() == "eye" and hair.lower() == "hair":
+        st.success("لقد أنقذتِ الموقف!")
+        if st.button("العودة للقصر"):
+            st.session_state.step = 9
+            st.rerun()
+
+elif st.session_state.step == 9:
+    show_img("uni corne 3.jpeg")
+    st.write("وها قد عادت بطلة الأبطال روفان ومعها الأمير عمر!")
+    st.write("أعطاها الأب كأساً كبيراً لمكافأتها، وتعلم عمر أن يسمع كلام والديه.")
+    show_img("reward2.jpeg")
+    show_img("reward1.jpeg")
+    
+    if st.button("إعادة اللعب من جديد؟"):
+        st.session_state.step = 0
+        st.rerun()
 
 # يمكنك إكمال باقي المراحل بنفس هذا النمط (7, 8, ...)
