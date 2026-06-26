@@ -14,83 +14,76 @@ def show_img(filename):
     except:
         st.warning(f"الصورة {filename} غير موجودة")
 
-# --- مراحل القصة ---
+# --- هيكل القصة (يجب أن تبدأ جميع الـ if والـ elif من بداية السطر) ---
 
 if st.session_state.step == 0:
     name = st.text_input("What Is Your Name?")
-    if st.button("تأكيد الاسم"):
-        if name.lower() == "rovan":
+    if name.lower() == "rovan":
+        show_img("rofy-princess.jpeg")
+        if st.button("التالي"):
             st.session_state.step = 1
             st.rerun()
-        else:
-            st.error("الاسم غير صحيح، حاولي مجدداً")
 
 elif st.session_state.step == 1:
-    show_img("rofy-princess.jpeg")
     father = st.text_input("What Is Your Father Name?")
-    if st.button("تأكيد اسم الأب"):
-        if father.lower() == "hassan":
+    if father.lower() == "hassan":
+        show_img("hassan-king.jpeg")
+        if st.button("التالي"):
             st.session_state.step = 2
             st.rerun()
-        else:
-            st.error("اسم الأب غير صحيح")
 
 elif st.session_state.step == 2:
-    show_img("hassan-king.jpeg")
     mother = st.text_input("What Is Your Mother Name?")
-    if st.button("تأكيد اسم الأم"):
-        if mother.lower() == "aliaa":
+    if mother.lower() == "aliaa":
+        show_img("aliaa-queen.jpeg")
+        if st.button("التالي"):
             st.session_state.step = 3
             st.rerun()
-        else:
-            st.error("اسم الأم غير صحيح")
 
 elif st.session_state.step == 3:
-    show_img("aliaa-queen.jpeg")
     brother = st.text_input("What Is Your Brother Name?")
-    if st.button("تأكيد اسم الأخ"):
-        if brother.lower() == "omar":
+    if brother.lower() == "omar":
+        show_img("omar-prince.jpeg")
+        if st.button("نبدأ الطعام"):
             st.session_state.step = 4
             st.rerun()
-        else:
-            st.error("اسم الأخ غير صحيح")
 
 elif st.session_state.step == 4:
-    show_img("omar-prince.jpeg")
     st.write("الان سنتناول الطعام")
     food_ans = st.text_input("ما معني كلمة الطعام بالانجليزيه ؟")
-    if st.button("تأكيد الإجابة"):
-        if food_ans.lower() == "food":
+    if food_ans.lower() == "food":
+        show_img("family food 1.jpeg")
+        if st.button("إلى الغابة"):
             st.session_state.step = 5
             st.rerun()
 
 elif st.session_state.step == 5:
-    show_img("family food 1.jpeg")
     st.write("الان وقت المغامرة سنذهب جميعا الي الغابة")
     show_img("junjle1.jpeg")
+    st.write("عمر المشاغب جرى بعيدا!")
     naughty = st.text_input("ما معني كلمة مشاغب باللغه الانجليزيه ؟")
-    if st.button("تأكيد"):
-        if naughty.lower() == "naughty":
+    if naughty.lower() == "naughty":
+        show_img("omar.jpeg")
+        st.write("قامت الغولة بخطفه!")
+        if st.button("إنقاذ عمر"):
             st.session_state.step = 6
             st.rerun()
 
 elif st.session_state.step == 6:
-    show_img("omar.jpeg")
-    st.write("قامت الغولة بخطف عمر! دور البطلة روفان!")
+    st.write("دور روفان الآن!")
     head = st.text_input("ما معني كلمة رأس باللغه الانجليزيه ؟")
     ear = st.text_input("ما معني كلمة أذن باللغه الانجليزيه ؟")
-    if st.button("إنقاذ عمر"):
-        if head.lower() == "head" and ear.lower() == "ear":
+    if head.lower() == "head" and ear.lower() == "ear":
+        if st.button("استدعاء اليونيكورن"):
             st.session_state.step = 7
             st.rerun()
 
 elif st.session_state.step == 7:
     show_img("uni corne1.jpeg")
-    st.write("استدعاء اليونيكورن!")
     mouth = st.text_input("ما معني كلمة فم باللغه الانجليزيه ؟")
     nose = st.text_input("ما معني كلمة انف باللغه الانجليزيه ؟")
-    if st.button("المرحلة التالية"):
-        if mouth.lower() == "mouth" and nose.lower() == "nose":
+    if mouth.lower() == "mouth" and nose.lower() == "nose":
+        if st.button("الذهاب لإنقاذ عمر"):
             st.session_state.step = 8
             st.rerun()
 
@@ -98,8 +91,8 @@ elif st.session_state.step == 8:
     show_img("uni corne 2.jpeg")
     eye = st.text_input("ما معني كلمة عين باللغه الانجليزيه ؟")
     hair = st.text_input("ما معني كلمة شعر باللغه الانجليزيه ؟")
-    if st.button("إنهاء المهمة"):
-        if eye.lower() == "eye" and hair.lower() == "hair":
+    if eye.lower() == "eye" and hair.lower() == "hair":
+        if st.button("العودة للقصر"):
             st.session_state.step = 9
             st.rerun()
 
@@ -107,7 +100,9 @@ elif st.session_state.step == 9:
     show_img("uni corne 3.jpeg")
     st.write("تم الإنقاذ! روفان بطلة الأبطال.")
     show_img("reward2.jpeg")
+    st.write("تم الإنقاذ! روفان بطلة الأبطال.")
     show_img("reward1.jpeg")
+    
     if st.button("إعادة اللعب"):
         st.session_state.step = 0
         st.rerun()
