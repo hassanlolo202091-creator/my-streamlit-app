@@ -80,7 +80,7 @@ elif st.session_state.step == 6:
         if st.button("استدعاء اليونيكورن"):
             st.session_state.step = 7
             st.rerun()
-            elif st.session_state.step == 7:
+ elif st.session_state.step == 7:
     show_img("uni corne1.jpeg")
     st.write("الآن قامت الأميرة روفان باستدعاء اليونيكورن وحملت سيفها!")
     mouth = st.text_input("ما معنى كلمة فم باللغة الإنجليزية؟")
