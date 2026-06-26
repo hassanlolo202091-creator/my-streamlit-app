@@ -14,7 +14,7 @@ def show_img(filename):
     except:
         st.warning(f"الصورة {filename} غير موجودة")
 
-# --- هيكل القصة ---
+# --- هيكل القصة (يجب أن تبدأ جميع الـ if والـ elif من بداية السطر) ---
 
 if st.session_state.step == 0:
     name = st.text_input("What Is Your Name?")
@@ -100,8 +100,6 @@ elif st.session_state.step == 9:
     show_img("uni corne 3.jpeg")
     st.write("تم الإنقاذ! روفان بطلة الأبطال.")
     show_img("reward2.jpeg")
-    st.write("تم الإنقاذ! روفان بطلة الأبطال.")
-    show_img("reward1.jpeg")
     if st.button("إعادة اللعب"):
         st.session_state.step = 0
         st.rerun()
