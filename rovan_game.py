@@ -121,26 +121,43 @@ elif st.session_state.step == 5:
     st.write("الان وقت المغامرة سنذهب جميعا الي الغابة")
 
     show_img("junjle1.jpeg")
-
-    st.write("عمر المشاغب جرى بعيدا!")
-
-    naughty = st.text_input("ما معني كلمة مشاغب باللغه الانجليزيه ؟")
-
-    if naughty.lower() == "naughty":
-
-        show_img("omar.jpeg")
-
-        st.write("قامت الغولة بخطفه!")
-
-        if st.button("إنقاذ عمر"):
+    
+        if st.button("عمر المشاغب"):
 
             st.session_state.step = 6
 
             st.rerun()
 
 
-
 elif st.session_state.step == 6:
+
+    st.write("عمر المشاغب جرى بعيدا")
+
+    naughty_ans = st.text_input("ما معني كلمة مشاغب بالانجليزيه ؟")
+
+    if naughty_ans.lower() == "naughty":
+
+        show_img("omar.jpeg")
+
+        if st.button("الغوله"):
+
+            st.session_state.step = 7
+
+            st.rerun()
+            
+  elif st.session_state.step == 7:
+
+     st.write("عندما علمت الغوله ان عمر بعيدا عن والدبه فقامت بخطفه")
+
+          show_img("ghoul.jpeg")
+
+        if st.button("روفان البطله"):
+
+            st.session_state.step = 8
+
+            st.rerun()
+
+elif st.session_state.step == 8:
 
     st.write("دور روفان الآن!")
 
@@ -152,13 +169,13 @@ elif st.session_state.step == 6:
 
         if st.button("استدعاء اليونيكورن"):
 
-            st.session_state.step = 7
+            st.session_state.step = 9
 
             st.rerun()
 
 
 
-elif st.session_state.step == 7:
+elif st.session_state.step == 9:
 
     show_img("uni corne1.jpeg")
 
@@ -170,13 +187,13 @@ elif st.session_state.step == 7:
 
         if st.button("الذهاب لإنقاذ عمر"):
 
-            st.session_state.step = 8
+            st.session_state.step = 10
 
             st.rerun()
 
 
 
-elif st.session_state.step == 8:
+elif st.session_state.step == 10:
 
     show_img("uni corne 2.jpeg")
 
@@ -188,13 +205,13 @@ elif st.session_state.step == 8:
 
         if st.button("العودة للقصر"):
 
-            st.session_state.step = 9
+            st.session_state.step = 11
 
             st.rerun()
 
 
 
-elif st.session_state.step == 9:
+elif st.session_state.step == 11:
 
     show_img("uni corne 3.jpeg")
 
